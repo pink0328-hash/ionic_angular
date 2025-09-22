@@ -1,11 +1,11 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "SENDER_ID",
-    appId: "APP_ID"
+    apiKey: "AIzaSyDWqUNcYPMrFvHIpR48bIjDqWO20WiEBNw",
+    authDomain: "ionicangular-70ada.firebaseapp.com",
+    projectId: "ionicangular-70ada",
+    storageBucket: "ionicangular-70ada.firebasestorage.app",
+    messagingSenderId: "629254959303",
+    appId: "1:629254959303:web:4aafa5cc955c5f51f7cee2"
   }
 };
