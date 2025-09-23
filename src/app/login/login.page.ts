@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { 
@@ -37,19 +37,36 @@ export class LoginPage {
   password = '';
   isLoginMode = true;
 
-  constructor(private auth: Auth, private router: Router) {}
+  private auth = inject(Auth);
+  private router = inject(Router);
 
   async onSubmit() {
     try {
-      if (this.isLoginMode) {
-        console.log('@@@', this.email, this.password);
-        await signInWithEmailAndPassword(this.auth, this.email, this.password);
-      } else {
-        await createUserWithEmailAndPassword(this.auth, this.email, this.password);
+      // Basic validation
+      if (!this.email || !this.password) {
+        alert('Please fill in all fields');
+        return;
       }
+
+      // Demo mode - uncomment the lines below to enable Firebase authentication
+      // if (this.isLoginMode) {
+      //   console.log('Attempting login with:', this.email);
+      //   await signInWithEmailAndPassword(this.auth, this.email, this.password);
+      //   console.log('Login successful');
+      // } else {
+      //   console.log('Attempting signup with:', this.email);
+      //   await createUserWithEmailAndPassword(this.auth, this.email, this.password);
+      //   console.log('Signup successful');
+      // }
+      
+      // Demo mode - simulate successful authentication
+      console.log(`${this.isLoginMode ? 'Login' : 'Signup'} successful for:`, this.email);
+      alert(`${this.isLoginMode ? 'Login' : 'Signup'} successful! (Demo mode)`);
       this.router.navigateByUrl('/email');
+      
     } catch (err: any) {
-      alert(err.message);
+      console.error('Authentication error:', err);
+      alert(`Error: ${err.message}`);
     }
   }
 
