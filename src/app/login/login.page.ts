@@ -1,7 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { 
+  IonHeader, 
+  IonToolbar, 
+  IonTitle, 
+  IonContent, 
+  IonItem, 
+  IonLabel, 
+  IonInput, 
+  IonButton 
+} from '@ionic/angular/standalone';
 import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
@@ -10,7 +19,18 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
-  imports: [IonicModule, CommonModule, FormsModule],
+  imports: [
+    CommonModule, 
+    FormsModule,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonItem,
+    IonLabel,
+    IonInput,
+    IonButton
+  ],
 })
 export class LoginPage {
   email = '';
@@ -22,6 +42,7 @@ export class LoginPage {
   async onSubmit() {
     try {
       if (this.isLoginMode) {
+        console.log('@@@', this.email, this.password);
         await signInWithEmailAndPassword(this.auth, this.email, this.password);
       } else {
         await createUserWithEmailAndPassword(this.auth, this.email, this.password);
