@@ -11,7 +11,7 @@ import {
   IonInput, 
   IonButton 
 } from '@ionic/angular/standalone';
-import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from '@angular/fire/auth';
+// import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -37,7 +37,7 @@ export class LoginPage {
   password = '';
   isLoginMode = true;
 
-  private auth = inject(Auth);
+  // private auth = inject(Auth); // Commented out for demo mode
   private router = inject(Router);
 
   async onSubmit() {

@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
+// import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -11,7 +11,8 @@ export const routes: Routes = [
   {
     path: 'email',
     loadComponent: () =>
-      import('./email/email.page').then(m => m.EmailPage),
-    ...canActivate(() => redirectUnauthorizedTo(['login']))
+      import('./email/email.page').then(m => m.EmailPage)
+    // Temporarily disabled auth guard for demo mode
+    // ...canActivate(() => redirectUnauthorizedTo(['login']))
   }
 ];
